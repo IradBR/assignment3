@@ -1,0 +1,37 @@
+
+
+**open terminal, go to file directory.
+    in order to run server:
+    go into server directory and do:
+    1.mvn clean
+    2.mvn compile
+    3.
+    a) tpc server command line:
+    mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.BGSServer.TPCMain" -Dexec.args="7777"
+
+    b) reactor server command line:
+    mvn exec:java -Dexec.mainClass="bgu.spl.net.impl.BGSServer.ReactorMain" -Dexec.args="7777 5"
+
+**in order to run client:
+    go into client directory and do:
+    1.make clean
+    2.make
+    3.
+    ./bin/BGSclient 127.0.0.1 7777
+
+
+
+
+** running commands formats:
+    REGISTER <name> <password> dd-mm-yyyy
+    LOGIN <name> <password> <0/1>
+    LOGOUT
+    FOLLOW <0/1> <name>
+    POST <content>
+    PM <name> <content>
+    LOGSTAT
+    STAT <name|name|name...>
+    BLOCK <name>
+
+2) the filtered words are in server/src/main/java/bgu/spl/net/srv/DataBase- in the consrtractor at "filterwords" hash map.
+in order to add a new word: filterwords.putIfAbsent("the filtered word", "<filtered>");
